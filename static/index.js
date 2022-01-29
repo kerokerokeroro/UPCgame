@@ -167,7 +167,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     function getCPS() {
-        let cps = _gameScore * 5  / ((new Date().getTime() - _gameStartDatetime) / 1000);
+        let cps = (_gameScore * 5 )/ ((new Date().getTime() - _gameStartDatetime) / 1000);
         if (isNaN(cps) || cps === Infinity || _gameStartTime < 2) {
             cps = 0;
         }
