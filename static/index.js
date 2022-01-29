@@ -333,7 +333,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             tar = document.getElementById(p.id);
             tar.className = tar.className.replace(_ttreg, ' tt$1');
             _gameBBListIndex++;
-            _gameScore = _gameScore+5;
+            _gameScore++;
 
             updatePanel();
 
@@ -401,7 +401,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     function showGameScoreLayer(cps) {
         let l = $('#GameScoreLayer');
         let c = $(`#${_gameBBList[_gameBBListIndex - 1].id}`).attr('class').match(_ttreg)[1];
-        let score = (mode === MODE_ENDLESS ? cps : _gameScore);
+        let score = (mode === MODE_ENDLESS ? cps : (_gameScore*5));
         let best = getBestScore(score);
         l.attr('class', l.attr('class').replace(/bgc\d/, 'bgc' + c));
         $('#GameScoreLayer-text').html(shareText(cps));
