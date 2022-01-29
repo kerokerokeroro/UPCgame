@@ -167,7 +167,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     function getCPS() {
-        let cps = _gameScore * 5 / ((new Date().getTime() - _gameStartDatetime) / 1000);
+        let cps = _gameScore  / ((new Date().getTime() - _gameStartDatetime) / 1000);
         if (isNaN(cps) || cps === Infinity || _gameStartTime < 2) {
             cps = 0;
         }
@@ -333,7 +333,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             tar = document.getElementById(p.id);
             tar.className = tar.className.replace(_ttreg, ' tt$1');
             _gameBBListIndex++;
-            _gameScore++;
+            _gameScore = _gameScore+5;
 
             updatePanel();
 
