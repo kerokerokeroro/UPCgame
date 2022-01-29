@@ -167,7 +167,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     function getCPS() {
-        let cps = (_gameScore * 5 )/ ((new Date().getTime() - _gameStartDatetime) / 1000);
+        let cps = (_gameScore * 2 )/ ((new Date().getTime() - _gameStartDatetime) / 1000);
         if (isNaN(cps) || cps === Infinity || _gameStartTime < 2) {
             cps = 0;
         }
@@ -401,7 +401,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     function showGameScoreLayer(cps) {
         let l = $('#GameScoreLayer');
         let c = $(`#${_gameBBList[_gameBBListIndex - 1].id}`).attr('class').match(_ttreg)[1];
-        let score = (mode === MODE_ENDLESS ? cps : (_gameScore*5));
+        let score = (mode === MODE_ENDLESS ? cps : (_gameScore*2));
         let best = getBestScore(score);
         l.attr('class', l.attr('class').replace(/bgc\d/, 'bgc' + c));
         $('#GameScoreLayer-text').html(shareText(cps));
